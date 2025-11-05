@@ -160,6 +160,24 @@ def mostrar_senadores():
         return '<h2>No hay senadores cargados</h2>', 404
     return render_template('politicos.html', politicos=senadores)
 
+# === RUTA TEMPORAL PARA SEMBRAR DATOS ===
+from models import Politico, db
+
+@app.route("/seed")
+def seed():
+    db.create_all()  # crea las tablas si no existen
+
+    if not Politico.query.first():
+        db.session.add(Politico(nombre="Santiago Peña", cargo="Presidente"))
+        db.session.add(Politico(nombre="Pedro Alliana", cargo="Vicepresidente"))
+        db.session.add(Politico(nombre="Celeste Amarilla", cargo="Diputada"))
+        db.session.add(Politico(nombre="Esperanza Martínez", cargo="Senadora"))
+        db.session.commit()
+        return "Seed ejecutado ✅"
+    else:
+        return "Ya existen datos 🌱"
+
+
 # ======== EJECUCIÓN PRINCIPAL ========
 if __name__ == '__main__':
     with app.app_context():
