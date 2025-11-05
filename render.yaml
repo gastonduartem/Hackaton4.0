@@ -3,7 +3,7 @@ services:
     name: lobo-cordero
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app:app"
+    startCommand: gunicorn --chdir lobocordero conexion:app --worker-tmp-dir /dev/shm --timeout 120
     plan: free
     autoDeploy: true
     envVars:
