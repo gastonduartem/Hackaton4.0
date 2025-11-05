@@ -165,17 +165,20 @@ from conexion import app, db          # ⬅️ db viene de conexion.py
 
 @app.route("/seed")
 def seed():
-    db.create_all()  # crea las tablas si no existen
-
-    if not Politico.query.first():
-        db.session.add(Politico(nombre="Santiago Peña", cargo="Presidente"))
-        db.session.add(Politico(nombre="Pedro Alliana", cargo="Vicepresidente"))
-        db.session.add(Politico(nombre="Celeste Amarilla", cargo="Diputada"))
-        db.session.add(Politico(nombre="Esperanza Martínez", cargo="Senadora"))
-        db.session.commit()
-        return "Seed ejecutado ✅"
-    else:
+    try:
+        db.create_all()
+        if not Politico.query.first():
+            # Ajustá los campos a tu modelo real
+            db.session.add(Politico(nombre="Santiago Peña", cargo="Presidente"))
+            db.session.add(Politico(nombre="Pedro Alliana", cargo="Vicepresidente"))
+            db.session.add(Politico(nombre="Celeste Amarilla", cargo="Diputada"))
+            db.session.add(Politico(nombre="Esperanza Martínez", cargo="Senadora"))
+            db.session.commit()
+            return "Seed ejecutado ✅"
         return "Ya existen datos 🌱"
+    except Exception as e:
+        # Para ver el problema exacto si vuelve a fallar
+        return f"seed error: {e}", 500
 
 
 # ======== EJECUCIÓN PRINCIPAL ========
