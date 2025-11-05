@@ -161,7 +161,7 @@ def mostrar_senadores():
     return render_template('politicos.html', politicos=senadores)
 
 # === RUTA TEMPORAL PARA SEMBRAR DATOS ===
-from models import Politico, db
+from conexion import app, db          # ⬅️ db viene de conexion.py
 
 @app.route("/seed")
 def seed():
