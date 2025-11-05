@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nosotros - Lobo Cordero</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styleNosostros.css') }}">
+  </head>
+
+  <body>
+    <header>
+      <a class="back-btn" href="{{ url_for('inicio') }}" aria-label="Volver">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </a>
+
+      <div class="logo-titulo">
+        <button class="logo-btn">
+          <img src="/static/img/lobo_cordero.jpg" alt="Logo de Lobo Cordero" height="50" />
+        </button>
+        <h1>Sobre Nosotros</h1>
+      </div>
+
+      <nav>
+        <a href="{{ url_for('inicio') }}">Inicio</a>
+        <a href="{{ url_for('mostrar_encuesta') }}">Políticos</a>
+      </nav>
+    </header>
+
+    <main class="principal">
+      <section class="intro">
+        <h2>¿Qué es LoboCordero?</h2>
+        <p>
+          Nuestro proyecto consiste en una base de datos de perfiles políticos
+          cuyo objetivo es generar conciencia ciudadana sobre los representantes
+          actuales y pasados, transmitiendo el mensaje de que <strong>“Tu voto
+          importa”</strong>, para fomentar una participación más informada y
+          responsable.
+        </p>
+      </section>
+
+      <div class="contenido-horizontal">
+        <div class="bandera">
+          <img src="/static/img/flag1.jpg" alt="Bandera de Paraguay" class="img-base" />
+          <img src="/static/img/flag2.jpeg" alt="Hospital público en Paraguay" class="img-next" />
+        </div>
+
+        <div class="texto">
+          <h2>Misión</h2>
+          <p>
+            Promover la transparencia política y la participación ciudadana en
+            un entorno donde la desinformación suele ser la norma más que la
+            excepción. Nuestro propósito es ofrecer a cada ciudadano una
+            herramienta directa, imparcial y sencilla que permita entender mejor
+            a quienes ocupan cargos públicos y cómo sus acciones afectan la vida
+            diaria. Buscamos que la información no quede en manos de unos pocos,
+            sino que sea pública, clara y accesible para todos, porque la
+            confianza no se pide, se gana.
+          </p>
+
+          <h2>Visión</h2>
+          <p>
+            Ser un punto de referencia en Paraguay para la transparencia
+            política, desarrollando una plataforma que incomode a quienes
+            prefieren el silencio antes que la rendición de cuentas. Aspiramos a
+            que los ciudadanos participen con criterio y exigencia, no con
+            promesas vacías ni discursos bien ensayados. Queremos un país donde
+            los datos hablen más que las palabras, y donde la información deje
+            de ser un lujo para convertirse en un derecho básico.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-copy">
+        Miqueas Zarate • David Gonzalez • Damian Lopez • Camila Torres • Horacio
+        Sosa • Tobias Viera
+      </div>
+    </footer>
+  </body>
+</html>
